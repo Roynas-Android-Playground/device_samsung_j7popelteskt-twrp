@@ -6,9 +6,7 @@
 #
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/omni_j7popelteskt.mk
+    $(LOCAL_DIR)/twrp_j7popelteskt.mk
 
 COMMON_LUNCH_CHOICES := \
-    omni_j7popelteskt-user \
-    omni_j7popelteskt-userdebug \
-    omni_j7popelteskt-eng
+    twrp_j7popelteskt-eng
