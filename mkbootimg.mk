@@ -16,6 +16,10 @@ LOCAL_PATH := $(call my-dir)
 
 MKBOOTIMG := $(LOCAL_PATH)/mkbootimg
 
+$(recovery_ramdisk): $(recovery_uncompressed_ramdisk)
+	@echo ${CL_GRN}"----- Compressing recovery ramdisk (xz) ------"${CL_RST}
+	$(hide) xz -9c --format=lzma --lzma1=dict=16MiB $< > $@
+
 $(INSTALLED_BOOTIMAGE_TARGET): $(MKBOOTIMG) $(INTERNAL_BOOTIMAGE_FILES) $(BOOTIMAGE_EXTRA_DEPS) $(INSTALLED_KERNEL_TARGET)
 	$(call pretty,"Target boot image: $@")
 	$(hide) $(MKBOOTIMG) --kernel $(call bootimage-to-kernel,$(1)) $(INTERNAL_BOOTIMAGE_ARGS) $(INTERNAL_MKBOOTIMG_VERSION_ARGS) $(BOARD_MKBOOTIMG_ARGS) --output $@
