@@ -9,7 +9,6 @@ DEVICE_PATH := device/samsung/j7popelteskt
 
 # For building with minimal manifest
 ALLOW_MISSING_DEPENDENCIES := true
-BUILD_BROKEN_DUP_RULES := true
 
 # Architecture
 TARGET_ARCH := arm64
